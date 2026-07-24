@@ -25,8 +25,8 @@ body.dark {
 
 html{height:100%;overscroll-behavior:none}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%;overflow:hidden;overscroll-behavior:none; transition: background-color 0.3s ease, color 0.3s ease;} button{font:inherit;-webkit-tap-highlight-color:transparent; cursor:pointer;}
-#appShell{height:100vh;height:100dvh}
-.app{max-width:700px;margin:auto;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top)) 16px calc(8px + env(safe-area-inset-bottom));overflow:hidden}
+#appShell{height:100vh;height:100dvh;height:var(--app-height,100dvh)}
+.app{max-width:700px;margin:auto;height:100vh;height:100dvh;height:var(--app-height,100dvh);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top)) 16px calc(8px + env(safe-area-inset-bottom));overflow:hidden}
 .top{flex:0 0 auto;display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-bottom:clamp(8px,2.2vh,20px)}.top>div[style*="display:flex"]{margin-left:auto}.brand{font-weight:800;font-size:18px;color:var(--navy)}.home-button{flex:0 0 38px;width:38px;height:38px;border:0;border-radius:12px;background:var(--card);color:var(--blue);display:grid;place-items:center;font-size:22px;font-weight:900;line-height:1;box-shadow:0 3px 10px rgba(19,43,76,.10)}.home-button:active{transform:scale(.96)}body.dark .home-button{background:var(--card);color:#60a5fa}.home-button{width:42px;height:38px;flex-basis:42px}.home-button svg{width:25px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}.brand small{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}.score{background:#e8f0ff;color:#124ca8;padding:8px 11px;border-radius:12px;font-size:13px;font-weight:800}.progress-wrap{flex:0 0 auto;height:9px;background:#dfe6f1;border-radius:10px;overflow:hidden;margin:4px 0 clamp(8px,2vh,14px)}.progress{height:100%;background:var(--blue);border-radius:inherit;transition:width .25s}.card{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:var(--card);border-radius:20px;padding:clamp(16px,3.5vh,22px) 18px;box-shadow:0 7px 24px rgba(19,43,76,.08); transition: background-color 0.3s ease, box-shadow 0.3s ease;}.tag{color:#1959bc;background:#e8f0ff;width:max-content;padding:6px 9px;border-radius:8px;font-weight:800;font-size:12px;margin-bottom:14px}.counter{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:8px}h1{font-size:clamp(20px,5.2vw,25px);line-height:1.25;margin:0 0 clamp(12px,2.4vh,22px);letter-spacing:-.3px}.answers{display:grid;gap:clamp(8px,1.6vh,11px)}
 
 .answer, .topicbtn, .secondary, .reset {
@@ -63,6 +63,7 @@ body.dark .feedback.bad { background: rgba(239, 68, 68, 0.15); color: #f87171; }
   z-index: 9999;
   height: 100vh;
   height: 100dvh;
+  height: var(--app-height, 100dvh);
   display: flex;
   align-items: stretch;
   justify-content: center;
@@ -291,6 +292,21 @@ body.dark .landing-title { color: #f8fafc; }
 </style>
 </head>
 <body class="show-landing">
+<script>
+(function () {
+  function setAppHeight() {
+    document.documentElement.style.setProperty('--app-height', window.innerHeight + 'px');
+  }
+  setAppHeight();
+  window.addEventListener('resize', setAppHeight);
+  window.addEventListener('orientationchange', function () {
+    setTimeout(setAppHeight, 50);
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setAppHeight);
+  }
+})();
+</script>
 
 <div id="landingScreen" aria-labelledby="landingTitle">
   <section class="landing-card">
