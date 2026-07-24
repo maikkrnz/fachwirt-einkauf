@@ -217,8 +217,8 @@ body.dark .mini-slider{background:#334155}
   box-shadow: 0 14px 28px rgba(0,113,227,.28);
 }
 .start-button:active { transform: scale(.985); }
-.reset-stats-button{width:100%;min-height:48px;margin-top:0;border:1px solid rgba(248,113,113,.55);border-radius:16px;background:transparent;color:#f87171;font-size:.95rem;font-weight:800}.reset-stats-button:active{transform:scale(.985)}.landing-actions{gap:10px}
-.confirm-overlay{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(2,6,23,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.confirm-overlay.show{display:flex}.confirm-dialog{width:min(100%,390px);padding:25px;border-radius:24px;background:var(--card);color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,.35);text-align:center}.confirm-dialog h2{font-size:1.15rem;margin:0 0 10px}.confirm-dialog p{color:var(--muted);line-height:1.45;margin:0 0 21px}.confirm-actions{display:flex;gap:10px}.confirm-actions button{flex:1;min-height:48px;border-radius:14px;font-weight:800;font-size:.95rem}.confirm-no{border:1px solid var(--line);background:var(--card);color:var(--text)}.confirm-yes{border:0;background:#dc2626;color:#fff}
+.reset-stats-button{width:100%;min-height:48px;margin-top:0;border:1px solid rgba(248,113,113,.55);border-radius:16px;background:transparent;color:#f87171;font-size:.95rem;font-weight:800}.reset-stats-button:active{transform:scale(.985)}.reset-stats-button.is-locked{opacity:.4;color:var(--muted);border-color:var(--line);cursor:not-allowed}.reset-stats-button.is-locked:active{transform:none}.landing-actions{gap:10px}
+.confirm-overlay{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(2,6,23,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}.confirm-overlay.show{display:flex}.confirm-dialog{width:min(100%,390px);padding:25px;border-radius:24px;background:var(--card);color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,.35);text-align:center}.confirm-dialog h2{font-size:1.15rem;margin:0 0 10px}.confirm-dialog p{color:var(--muted);line-height:1.45;margin:0 0 21px}.confirm-actions{display:flex;gap:10px}.confirm-actions button{flex:1;min-height:48px;border-radius:14px;font-weight:800;font-size:.95rem}.confirm-no{border:1px solid var(--line);background:var(--card);color:var(--text)}.confirm-yes{border:0;background:#dc2626;color:#fff}.confirm-primary{border:0;background:var(--blue);color:#fff}
 .confetti-layer{position:fixed;inset:0;pointer-events:none;z-index:10500;overflow:hidden}
 .confetti-piece{position:absolute;top:-10px;width:9px;height:14px;opacity:.9;animation:confetti-fall linear forwards;border-radius:2px}
 @keyframes confetti-fall{to{transform:translateY(115vh) rotate(600deg);opacity:.2}}
@@ -383,14 +383,14 @@ body.dark .landing-title { color: #f8fafc; }
     <p>Gib deinen Code ein, um alle Fragen freizuschalten.</p>
     <input type="text" id="codeInput" class="search-input" placeholder="Code" autocapitalize="off" autocorrect="off" spellcheck="false" style="margin-bottom:10px;width:100%;">
     <p id="codeError" style="color:#e35252;font-size:13px;margin:0 0 14px;text-align:left;display:none;">Falscher Code. Bitte erneut versuchen.</p>
-    <div class="confirm-actions"><button class="confirm-no" id="cancelCodeButton" type="button">Abbrechen</button><button class="confirm-yes" id="submitCodeButton" type="button">Bestätigen</button></div>
+    <div class="confirm-actions"><button class="confirm-no" id="cancelCodeButton" type="button">Abbrechen</button><button class="confirm-primary" id="submitCodeButton" type="button">Bestätigen</button></div>
   </section>
 </div>
 <div class="confirm-overlay" id="unlockSuccessDialog" role="dialog" aria-modal="true" aria-labelledby="unlockSuccessTitle">
   <section class="confirm-dialog">
     <h2 id="unlockSuccessTitle">🎉 Freigeschaltet!</h2>
     <p>Alle Fragen sind jetzt freigeschaltet. Viel Erfolg beim Lernen!</p>
-    <div class="confirm-actions"><button class="confirm-yes" id="closeUnlockSuccessButton" type="button" style="width:100%;">Super!</button></div>
+    <div class="confirm-actions"><button class="confirm-primary" id="closeUnlockSuccessButton" type="button" style="width:100%;">Super!</button></div>
   </section>
 </div>
 <div id="appShell"><main class="app"><header class="top"><button class="home-button" id="homeButton" type="button" aria-label="Zur Startseite" title="Zur Startseite"><svg viewBox="0 0 32 28" aria-hidden="true"><path d="M3.5 12.5 16 3l12.5 9.5v11.2a1.8 1.8 0 0 1-1.8 1.8H5.3a1.8 1.8 0 0 1-1.8-1.8Z"/><path d="M12.2 25.5v-8h7.6v8"/></svg></button><div class="brand">Fachwirt Einkauf<small id="brandSub">Themenauswahl</small></div>
@@ -2670,7 +2670,7 @@ renderMenu();
     banner.style.display = (!dismissed && correct >= 20 && daysSinceExport > 14) ? 'flex' : 'none';
   }
   function readProgress() {
-    var correct = 0, streakCount = 0, totalMs = 0;
+    var correct = 0, streakCount = 0, totalMs = 0, purchased = false;
     try {
       var raw = localStorage.getItem('fwQuizProgress_v1');
       if (raw) {
@@ -2678,6 +2678,7 @@ renderMenu();
         correct = Number((s.solved && Object.keys(s.solved).length) || s.correctCount || 0);
         streakCount = Number((s.streak && s.streak.count) || 0);
         totalMs = Number(s.totalTimeMs || 0);
+        purchased = !!(s.purchase && s.purchase.unlocked);
       }
     } catch (e) {}
     var safeTotal = totalQuestions || correct || 0;
@@ -2692,6 +2693,14 @@ renderMenu();
     if (timeEl && typeof formatDuration === 'function') timeEl.textContent = formatDuration(totalMs);
     renderMilestones(boundedCorrect, streakCount);
     updateExportBanner();
+    updateResetButtonLock(purchased);
+  }
+  function updateResetButtonLock(purchased) {
+    var btn = document.getElementById('resetStatsButton');
+    if (!btn) return;
+    btn.disabled = !purchased;
+    btn.classList.toggle('is-locked', !purchased);
+    btn.title = purchased ? '' : 'Erst nach Freischaltung verfügbar';
   }
   function openApp() {
     document.body.classList.remove('show-landing');
@@ -2702,7 +2711,7 @@ renderMenu();
   if (startButton) startButton.addEventListener('click', openApp);
   var resetStatsButton = document.getElementById('resetStatsButton'); var resetConfirmDialog = document.getElementById('resetConfirmDialog'); var cancelResetButton = document.getElementById('cancelResetButton'); var confirmResetButton = document.getElementById('confirmResetButton');
   function closeResetDialog() { resetConfirmDialog.classList.remove('show'); }
-  if (resetStatsButton) resetStatsButton.addEventListener('click', function () { resetConfirmDialog.classList.add('show'); });
+  if (resetStatsButton) resetStatsButton.addEventListener('click', function () { if (resetStatsButton.disabled) return; resetConfirmDialog.classList.add('show'); });
   if (cancelResetButton) cancelResetButton.addEventListener('click', closeResetDialog);
   if (confirmResetButton) confirmResetButton.addEventListener('click', function () {
     localStorage.removeItem('fwQuizProgress_v1');
@@ -2770,6 +2779,7 @@ renderMenu();
       if (typeof unlockFull === 'function') unlockFull('promo_code');
       closeCodeDialog();
       if (unlockSuccessDialog) unlockSuccessDialog.classList.add('show');
+      readProgress();
       if (typeof renderMenu === 'function' && !document.body.classList.contains('show-landing')) renderMenu();
     } else {
       codeError.style.display = 'block';
