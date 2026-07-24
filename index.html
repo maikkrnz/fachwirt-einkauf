@@ -27,7 +27,7 @@ html{height:100%;overscroll-behavior:none}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%;overflow:hidden;overscroll-behavior:none; transition: background-color 0.3s ease, color 0.3s ease;} button{font:inherit;-webkit-tap-highlight-color:transparent; cursor:pointer;}
 #appShell{height:100vh;height:100dvh;height:var(--app-height,100dvh)}
 .app{max-width:700px;margin:auto;height:100vh;height:100dvh;height:var(--app-height,100dvh);display:flex;flex-direction:column;padding:calc(10px + env(safe-area-inset-top)) 16px calc(8px + env(safe-area-inset-bottom));overflow:hidden}
-.top{flex:0 0 auto;display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-bottom:clamp(8px,2.2vh,20px)}.top>div[style*="display:flex"]{margin-left:auto}.brand{font-weight:800;font-size:18px;color:var(--navy)}.home-button{flex:0 0 38px;width:38px;height:38px;border:0;border-radius:12px;background:var(--card);color:var(--blue);display:grid;place-items:center;font-size:22px;font-weight:900;line-height:1;box-shadow:0 3px 10px rgba(19,43,76,.10)}.home-button:active{transform:scale(.96)}body.dark .home-button{background:var(--card);color:#60a5fa}.home-button{width:42px;height:38px;flex-basis:42px}.home-button svg{width:25px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}.brand small{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}.score{background:#e8f0ff;color:#124ca8;padding:8px 11px;border-radius:12px;font-size:13px;font-weight:800}.progress-wrap{flex:0 0 auto;height:9px;background:#dfe6f1;border-radius:10px;overflow:hidden;margin:4px 0 clamp(8px,2vh,14px)}.progress{height:100%;background:var(--blue);border-radius:inherit;transition:width .25s}.card{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:var(--card);border-radius:20px;padding:clamp(16px,3.5vh,22px) 18px;box-shadow:0 7px 24px rgba(19,43,76,.08); transition: background-color 0.3s ease, box-shadow 0.3s ease;}.tag{color:#1959bc;background:#e8f0ff;width:max-content;padding:6px 9px;border-radius:8px;font-weight:800;font-size:12px;margin-bottom:14px}.counter{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:8px}h1{font-size:clamp(20px,5.2vw,25px);line-height:1.25;margin:0 0 clamp(12px,2.4vh,22px);letter-spacing:-.3px}.answers{display:grid;gap:clamp(8px,1.6vh,11px)}
+.top{flex:0 0 auto;display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-bottom:clamp(6px,1.6vh,16px)}.top>div[style*="display:flex"]{margin-left:auto}.brand{font-weight:800;font-size:18px;color:var(--navy)}.home-button{flex:0 0 38px;width:38px;height:38px;border:0;border-radius:12px;background:var(--card);color:var(--blue);display:grid;place-items:center;font-size:22px;font-weight:900;line-height:1;box-shadow:0 3px 10px rgba(19,43,76,.10)}.home-button:active{transform:scale(.96)}body.dark .home-button{background:var(--card);color:#60a5fa}.home-button{width:42px;height:38px;flex-basis:42px}.home-button svg{width:25px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}.brand small{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}.score{background:#e8f0ff;color:#124ca8;padding:8px 11px;border-radius:12px;font-size:13px;font-weight:800}.progress-wrap{flex:0 0 auto;height:9px;background:#dfe6f1;border-radius:10px;overflow:hidden;margin:4px 0 clamp(6px,1.5vh,11px)}.progress{height:100%;background:var(--blue);border-radius:inherit;transition:width .25s}.card{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:var(--card);border-radius:20px;padding:clamp(12px,2.6vh,18px) 16px;box-shadow:0 7px 24px rgba(19,43,76,.08); transition: background-color 0.3s ease, box-shadow 0.3s ease;}.tag{color:#1959bc;background:#e8f0ff;width:max-content;padding:5px 8px;border-radius:8px;font-weight:800;font-size:11.5px;margin-bottom:10px}.counter{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:6px}h1{font-size:clamp(18.5px,4.8vw,23px);line-height:1.22;margin:0 0 clamp(9px,1.8vh,16px);letter-spacing:-.3px}.answers{display:grid;gap:clamp(6px,1.2vh,9px)}
 
 .answer, .topicbtn, .secondary, .reset {
     transition: all 0.2s ease-in-out;
@@ -41,7 +41,7 @@ html{height:100%;overscroll-behavior:none}
     box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.answer{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:13px 14px;text-align:left;color:var(--text);font-weight:650;line-height:1.32;display:flex;gap:12px;align-items:flex-start;font-size:clamp(14px,3.7vw,16px)}.answer:active{transform:scale(.99)}.letter{flex:0 0 27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#edf1f7;color:#445166;font-size:13px;font-weight:900; transition: all 0.3s ease;}.answer.correct{border-color:var(--good);background:#eaf8f0}.answer.correct .letter{background:var(--good);color:#fff}.answer.wrong{border-color:var(--bad);background:#fff0f0}.answer.wrong .letter{background:var(--bad);color:#fff}.answer:disabled{cursor:default}.feedback{display:none;margin-top:14px;border-radius:13px;padding:12px 14px;line-height:1.4;font-size:14px}.feedback.good{display:block;background:#eaf8f0;color:#0d663c}.feedback.bad{display:block;background:#fff0f0;color:#9e2424}.explanation{display:none;margin-top:10px;padding:12px 14px;background:#f1f5fb;border-radius:13px;line-height:1.4;font-size:13.5px}.explanation.show{display:block}.bottom-fixed{flex:0 0 auto}.next{display:none;margin:12px 0 0;width:100%;border:0;border-radius:14px;background:var(--blue);color:#fff;font-weight:850;padding:15px; cursor:pointer; transition: all 0.2s;}.next:hover{transform: translateY(-2px); box-shadow: 0 4px 12px rgba(23, 105, 224, 0.3);}.next.show{display:block}.actions{display:flex;gap:10px;margin-top:10px}.secondary{flex:1;border:1px solid var(--line);background:var(--card);color:var(--text);padding:13px;border-radius:12px;font-weight:750}.empty{padding:20px;text-align:center}.empty h1{margin-bottom:10px}.reset{border:0;background:var(--blue);color:#fff;padding:13px 18px;border-radius:12px;font-weight:800;margin-top:10px}.paywall{padding:clamp(20px,4vh,36px) 12px;text-align:center;display:flex;flex-direction:column;align-items:center}.paywall-icon{font-size:44px;margin-bottom:6px}.paywall h1{font-size:22px;margin:6px 0 10px}.paywall-text{color:var(--muted);line-height:1.5;font-size:14.5px;max-width:38ch;margin:0 0 22px}.paywall-buy{width:100%;max-width:320px;font-size:16px;padding:16px 18px}.paywall-restore{width:100%;max-width:320px;margin-top:12px;background:transparent}.menu{display:grid;gap:13px}#topicList{display:grid;gap:13px}#searchResults{display:grid;gap:8px}.menu h1{margin:0 0 6px}.unlock-badge{font-size:13px;font-weight:800;color:var(--good);margin:0 0 14px}.unlock-badge.muted{color:var(--muted);font-weight:700}.topicbtn{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px;text-align:left;color:var(--text);font-weight:800;font-size:18px}.topicbtn span{display:block;color:var(--muted);font-size:13px;font-weight:600;margin-top:5px}.back{flex:0 0 auto;display:none;margin-bottom:10px;border:0;background:transparent;color:var(--blue);font-weight:800;padding:4px 0; cursor:pointer; transition: opacity 0.2s;}.back:hover{opacity: 0.7;}
+.answer{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:11px 13px;text-align:left;color:var(--text);font-weight:650;line-height:1.28;display:flex;gap:11px;align-items:flex-start;font-size:clamp(13.5px,3.6vw,15.5px)}.answer:active{transform:scale(.99)}.letter{flex:0 0 24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#edf1f7;color:#445166;font-size:12px;font-weight:900; transition: all 0.3s ease;}.answer.correct{border-color:var(--good);background:#eaf8f0}.answer.correct .letter{background:var(--good);color:#fff}.answer.wrong{border-color:var(--bad);background:#fff0f0}.answer.wrong .letter{background:var(--bad);color:#fff}.answer:disabled{cursor:default}.feedback{display:none;margin-top:10px;border-radius:12px;padding:9px 13px;line-height:1.35;font-size:13.5px}.feedback.good{display:block;background:#eaf8f0;color:#0d663c}.feedback.bad{display:block;background:#fff0f0;color:#9e2424}.explanation{display:none;margin-top:8px;padding:10px 13px;background:#f1f5fb;border-radius:12px;line-height:1.35;font-size:13px}.explanation.show{display:block}.bottom-fixed{flex:0 0 auto}.next{display:none;margin:12px 0 0;width:100%;border:0;border-radius:14px;background:var(--blue);color:#fff;font-weight:850;padding:15px; cursor:pointer; transition: all 0.2s;}.next:hover{transform: translateY(-2px); box-shadow: 0 4px 12px rgba(23, 105, 224, 0.3);}.next.show{display:block}.actions{display:flex;gap:10px;margin-top:10px}.secondary{flex:1;border:1px solid var(--line);background:var(--card);color:var(--text);padding:13px;border-radius:12px;font-weight:750}.empty{padding:20px;text-align:center}.empty h1{margin-bottom:10px}.reset{border:0;background:var(--blue);color:#fff;padding:13px 18px;border-radius:12px;font-weight:800;margin-top:10px}.paywall{padding:clamp(20px,4vh,36px) 12px;text-align:center;display:flex;flex-direction:column;align-items:center}.paywall-icon{font-size:44px;margin-bottom:6px}.paywall h1{font-size:22px;margin:6px 0 10px}.paywall-text{color:var(--muted);line-height:1.5;font-size:14.5px;max-width:38ch;margin:0 0 22px}.paywall-buy{width:100%;max-width:320px;font-size:16px;padding:16px 18px}.paywall-restore{width:100%;max-width:320px;margin-top:12px;background:transparent}.menu{display:grid;gap:13px}#topicList{display:grid;gap:13px}#searchResults{display:grid;gap:8px}.menu h1{margin:0 0 6px}.unlock-badge{font-size:13px;font-weight:800;color:var(--good);margin:0 0 14px}.unlock-badge.muted{color:var(--muted);font-weight:700}.topicbtn{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:20px;text-align:left;color:var(--text);font-weight:800;font-size:18px}.topicbtn span{display:block;color:var(--muted);font-size:13px;font-weight:600;margin-top:5px}.back{flex:0 0 auto;display:none;margin-bottom:10px;border:0;background:transparent;color:var(--blue);font-weight:800;padding:4px 0; cursor:pointer; transition: opacity 0.2s;}.back:hover{opacity: 0.7;}
 .topicbtn{display:flex;flex-direction:column;gap:8px}.topicbtn .topicbtn-row{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%}.topicbtn .topicbtn-title{color:var(--text);font-size:18px;font-weight:800}.topicbtn .topicbtn-badge{font-size:16px;line-height:1}.topic-progress-track{height:6px;background:#dfe6f1;border-radius:10px;overflow:hidden;width:100%}.topic-progress-fill{height:100%;background:var(--blue);border-radius:inherit}body.dark .topic-progress-track{background:#334155}
 .topicbtn-chevron{display:inline;color:var(--muted);font-weight:900;margin-left:4px}.group-summary{margin:-4px 0 2px;color:var(--muted);font-size:13px;font-weight:600}
 .search-wrap{margin-bottom:14px}.search-input{width:100%;border:2px solid var(--line);background:var(--card);color:var(--text);border-radius:14px;padding:13px 14px;font-size:15px}.search-input:focus{outline:none;border-color:var(--blue)}.search-hit{padding:10px 12px;border-radius:10px;background:#edf1f7;color:var(--text);font-size:13.5px;margin-bottom:6px;line-height:1.35}body.dark .search-hit{background:#334155}.search-empty{color:var(--muted);font-size:14px;padding:6px 2px}
@@ -313,6 +313,7 @@ body.dark .landing-title { color: #f8fafc; }
     <div class="landing-logo" aria-hidden="true"><img src="cap-logo.png" alt=""></div>
     <button id="landingMenuBtn" class="landing-menu-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Weitere Optionen">⋮</button>
     <div id="landingMenuDropdown" class="landing-menu-dropdown" role="menu">
+      <button id="shareProgressButton" type="button" role="menuitem">Fortschritt teilen</button>
       <button id="enterCodeButton" type="button" role="menuitem">Freischalt-Code eingeben</button>
       <button id="restorePurchaseButton" type="button" role="menuitem">Kauf wiederherstellen</button>
       <div class="menu-divider" role="separator"></div>
@@ -403,6 +404,14 @@ body.dark .landing-title { color: #f8fafc; }
 </div>
 </header><div class="progress-wrap"><div class="progress" id="progress" style="width:0%"></div></div><button class="back" id="back">← Themenauswahl</button><section class="card" id="quiz"></section><div class="bottom-fixed" id="bottomFixed"><button class="next" id="nextBtn">Weiter</button><div class="actions" id="actionsBar" style="display:none"><button class="secondary" id="restart">Neu starten</button><button class="secondary" id="mistakes">Fehler üben</button></div></div></main>
 <script>
+function syncNativeStatusBar(dark){
+    const StatusBar = nativePlugin('StatusBar');
+    if(!StatusBar) return;
+    try{
+        StatusBar.setStyle({style: dark ? 'DARK' : 'LIGHT'});
+        StatusBar.setBackgroundColor({color: dark ? '#0f172a' : '#f3f6fb'});
+    }catch(e){}
+}
 const themeCheckbox = document.getElementById('theme-toggle-input');
 let isDark = true;
 try {
@@ -416,9 +425,11 @@ try {
 } catch(e) {}
 document.body.classList.toggle('dark', isDark);
 themeCheckbox.checked = isDark;
+syncNativeStatusBar(isDark);
 themeCheckbox.onchange = () => {
     const dark = themeCheckbox.checked;
     document.body.classList.toggle('dark', dark);
+    syncNativeStatusBar(dark);
     if (typeof state !== 'undefined' && state.settings) {
         state.settings.darkMode = dark;
         if (typeof saveState === 'function') saveState();
@@ -1970,12 +1981,34 @@ function saveState(){
 
 let state = loadState();
 let sessionStartTime = null;
-function vibrate(pattern){
+function nativePlugin(name){
     try{
-        if(state.settings && state.settings.haptics && navigator.vibrate){
-            navigator.vibrate(pattern);
-        }
-    }catch(e){}
+        return (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins && window.Capacitor.Plugins[name]) || null;
+    }catch(e){ return null; }
+}
+function hapticSuccess(){
+    if(!(state.settings && state.settings.haptics)) return;
+    const Haptics = nativePlugin('Haptics');
+    if(Haptics){
+        try{ Haptics.notification({type:'SUCCESS'}); return; }catch(e){}
+    }
+    try{ if(navigator.vibrate) navigator.vibrate(15); }catch(e){}
+}
+function hapticError(){
+    if(!(state.settings && state.settings.haptics)) return;
+    const Haptics = nativePlugin('Haptics');
+    if(Haptics){
+        try{ Haptics.notification({type:'ERROR'}); return; }catch(e){}
+    }
+    try{ if(navigator.vibrate) navigator.vibrate([30,50,30]); }catch(e){}
+}
+function hapticTap(){
+    if(!(state.settings && state.settings.haptics)) return;
+    const Haptics = nativePlugin('Haptics');
+    if(Haptics){
+        try{ Haptics.impact({style:'LIGHT'}); return; }catch(e){}
+    }
+    try{ if(navigator.vibrate) navigator.vibrate(8); }catch(e){}
 }
 function startSession(){ sessionStartTime = Date.now(); }
 function endSession(){
@@ -2471,7 +2504,7 @@ function handleAnswer(btn, qIndex){
     const st = state.stats[qIndex] || {seen:0, wrong:0, lastSeen:0, streak:0};
     st.seen += 1;
     if(isCorrect){
-        vibrate(15);
+        hapticSuccess();
         feedback.className = 'feedback good';
         feedback.textContent = 'Richtig!';
         feedback.style.display='block';
@@ -2483,7 +2516,7 @@ function handleAnswer(btn, qIndex){
         st.streak = (st.streak||0) + 1;
         roundCorrect += 1;
     } else {
-        vibrate([30,50,30]);
+        hapticError();
         feedback.className = 'feedback bad';
         feedback.textContent = 'Leider falsch.';
         feedback.style.display='block';
@@ -2498,9 +2531,14 @@ function handleAnswer(btn, qIndex){
     updateScoreDisplay();
     saveState();
     document.getElementById('nextBtn').classList.add('show');
+    setTimeout(()=>{
+        const quizCard = document.getElementById('quiz');
+        if(quizCard) quizCard.scrollTo({top: quizCard.scrollHeight, behavior:'smooth'});
+    }, 60);
 }
 
 function nextQuestion(){
+    hapticTap();
     currentIndex += 1;
     renderQuestion();
 }
@@ -2756,6 +2794,21 @@ renderMenu();
   });
 
   var UNLOCK_CODE = 'fachwirtEINKAUF';
+  var shareProgressBtn = document.getElementById('shareProgressButton');
+  if (shareProgressBtn) shareProgressBtn.addEventListener('click', function(){
+    var correct = correctEl ? correctEl.textContent : '0';
+    var streakCount = streakEl ? streakEl.textContent : '0 Tage';
+    var text = 'Ich lerne für die Fachwirt-Einkauf-Prüfung: ' + correct + ' Fragen richtig beantwortet, ' + streakCount + ' Lernserie! 💪';
+    var ShareNative = typeof nativePlugin === 'function' ? nativePlugin('Share') : null;
+    if (ShareNative) {
+      ShareNative.share({ title: 'Fachwirt Einkauf', text: text }).catch(function(){});
+    } else if (navigator.share) {
+      navigator.share({ title: 'Fachwirt Einkauf', text: text }).catch(function(){});
+    } else {
+      alert(text);
+    }
+    closeMenu();
+  });
   var enterCodeBtn = document.getElementById('enterCodeButton');
   var codeDialog = document.getElementById('codeDialog');
   var codeInput = document.getElementById('codeInput');
@@ -2841,11 +2894,42 @@ renderMenu();
     if (typeof state === 'undefined') return;
     state.settings.haptics = hapticToggle.checked;
     if (typeof saveState === 'function') saveState();
-    if (hapticToggle.checked && navigator.vibrate) navigator.vibrate(15);
+    if (hapticToggle.checked && typeof hapticTap === 'function') hapticTap();
   });
+  var REMINDER_NOTIF_ID = 9001;
+  function scheduleNativeReminder(){
+    var LN = typeof nativePlugin === 'function' ? nativePlugin('LocalNotifications') : null;
+    if (!LN) return;
+    try{
+      LN.cancel({notifications:[{id:REMINDER_NOTIF_ID}]}).catch(function(){});
+      LN.schedule({notifications:[{
+        id: REMINDER_NOTIF_ID,
+        title: 'Fachwirt Einkauf',
+        body: 'Zeit fürs Lernen – dein Fortschritt wartet auf dich! 💪',
+        schedule: { at: new Date(Date.now() + 24*60*60*1000) }
+      }]}).catch(function(){});
+    }catch(e){}
+  }
+  function cancelNativeReminder(){
+    var LN = typeof nativePlugin === 'function' ? nativePlugin('LocalNotifications') : null;
+    if (!LN) return;
+    try{ LN.cancel({notifications:[{id:REMINDER_NOTIF_ID}]}).catch(function(){}); }catch(e){}
+  }
   if (reminderToggle) reminderToggle.addEventListener('change', function(){
     if (typeof state === 'undefined') return;
+    var LN = typeof nativePlugin === 'function' ? nativePlugin('LocalNotifications') : null;
     if (reminderToggle.checked) {
+      if (LN) {
+        LN.requestPermissions().then(function(perm){
+          var granted = perm && perm.display === 'granted';
+          state.settings.dailyReminder = granted;
+          reminderToggle.checked = granted;
+          if (!granted) alert('Ohne Erlaubnis für Benachrichtigungen kann die Erinnerung nicht aktiviert werden.');
+          else scheduleNativeReminder();
+          if (typeof saveState === 'function') saveState();
+        }).catch(function(){});
+        return;
+      }
       if (!('Notification' in window)) {
         alert('Dein Browser unterstützt leider keine Benachrichtigungen.');
         reminderToggle.checked = false;
@@ -2859,11 +2943,14 @@ renderMenu();
       });
     } else {
       state.settings.dailyReminder = false;
+      cancelNativeReminder();
       if (typeof saveState === 'function') saveState();
     }
   });
   function checkDailyReminder(){
     if (typeof state === 'undefined' || !state.settings || !state.settings.dailyReminder) return;
+    var LN = typeof nativePlugin === 'function' ? nativePlugin('LocalNotifications') : null;
+    if (LN) { scheduleNativeReminder(); return; }
     if (!('Notification' in window) || Notification.permission !== 'granted') return;
     var today = new Date().toISOString().slice(0,10);
     if (state.lastReminderShown === today) return;
